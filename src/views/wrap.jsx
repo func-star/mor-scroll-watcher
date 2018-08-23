@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import { findDOMNode } from 'react-dom'
 import Watcher from 'watcher'
+import Ctrl from './ctrl'
 import { ListView } from 'mona'
-import './index.less'
 
 const WatcherItem = Watcher.item
 
-export default class Home extends Component {
+export default class Wrap extends Component {
 	componentWillMount () {
 		this.getList()
 		
@@ -26,51 +26,38 @@ export default class Home extends Component {
 		this.list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 	}
 	
-	onRefresh (done) {
-		setTimeout(() => {
-			this.getList()
-			this.isEnd = this.list.length > 20
-			this.setState({})
-			done() // call done
-		}, 2000)
-	}
-	
 	onInfinite (done) {
 		setTimeout(() => {
 			this.list = this.list.concat([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
-			this.isEnd = this.list.length > 40
+			this.isEnd = this.list.length > 19
 			this.setState({})
 			done()
 		}, 1500)
 	}
 	
 	onWatcher (index) {
-		console.log(index)
+		Ctrl.emit('logoChange', index)
 	}
 	
 	render () {
 		return (
-			<div className="wrap" id="views">
+			<div className="wrap o-a full">
 				<ListView
 					style={{ height: '100%' }}
-					onRefresh={this.onRefresh.bind(this)}
+					enableRefresh={false}
 					onInfinite={this.onInfinite.bind(this)}
 					isEnd={this.isEnd}
 					ref="views">
 					<For of={this.list} each="item" index="index">
-						<WatcherItem
-							className="w-full scroller-item"
-							key={index}
-							style={{
-								height: '200px',
-								background: 'yellow',
-								margin: '20px 0'
-							}}
-							onWatcher={this.onWatcher.bind(this, index)}
+						<WatcherItem className="w-full scroller-item pos-r" key={index} onWatcher={this.onWatcher.bind(this, index)}
 						>
-							{item}-{index}
+							<img src="http://static.monajs.cn/example/beauty.jpg" className="w-full" style={{ marginBottom: '20px' }} />
+							<div className="tag pos-a flex-center">{index + 1}</div>
 						</WatcherItem>
 					</For>
+					<If condition={this.isEnd}>
+						<div className="flex-center">没有更多了~</div>
+					</If>
 				</ListView>
 			</div>
 		)

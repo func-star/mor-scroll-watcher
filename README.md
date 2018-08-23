@@ -80,7 +80,7 @@ export default class Home extends Component {
 | 参数 | 说明 | 类型 | 默认值 | 是否必传 |
 | --- | --- | --- | --- | :-- |
 | wrap | 滚动容器 | `DOM原生节点` | - | `yes` |
-| bottomEmit | 滚动距离底部的触发距离 | `Number` | - | `no` |
+| bottomEmit | 滚动距离底部的触发距离 | `Number` | `0` | `no` |
 | initEmit | 初始化是否需要触发一次 | `Boolean` | `true` | `no` |
 
 # WatcherItem

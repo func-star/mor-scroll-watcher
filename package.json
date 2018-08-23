@@ -1,6 +1,6 @@
 {
 	"name": "mor-scroll-watcher",
-	"version": "0.2.0",
+	"version": "0.3.0",
 	"description": "Mona系列 - React滚动监听组件",
 	"main": "index.js",
 	"scripts": {
@@ -45,7 +45,7 @@
 		"jsx-control-statements": "3.1.2",
 		"less": "^2.7.3",
 		"less-loader": "^4.0.5",
-		"mor-mobile": "^0.5.1",
+		"mor-mobile": "^0.6.0",
 		"open-browser-webpack-plugin": "0.0.5",
 		"postcss-cssnext": "^3.0.2",
 		"postcss-import": "^11.0.0",
