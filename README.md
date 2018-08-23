@@ -7,6 +7,7 @@
 - 滚动曝光埋点
 - 图片懒加载
 - 视图区域按需加载
+
 ...
 
 
@@ -15,7 +16,7 @@
 - [mona-events](https://www.npmjs.com/package/mona-events)
 
 ## 使用指南
-```jsx
+```js
 import Watcher from 'mor-scroll-watcher'
 const WatcherItem = Watcher.item
 
@@ -29,7 +30,7 @@ Watcher.init(options)
 
 
 ## 代码演示
-```
+```js
 import React, { Component } from 'react'
 import Watcher from 'mor-scroll-watcher'
 
