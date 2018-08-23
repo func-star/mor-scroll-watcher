@@ -1,8 +1,8 @@
 import Watcher from './watcher'
 import Item from './item'
-import Key from './key'
+import KeyStore from './keyStore'
 
-const key = Key.getMonaKey()
+const key = KeyStore.getWrapKey()
 const defaultOptions = {
 	watcherInterval: 200, // 滚动检测时间间隔
 	bottomEmit: 0, // 距离底部多少时触发
@@ -10,12 +10,12 @@ const defaultOptions = {
 	initEmit: true // 是否初始化触发一次
 }
 
-class Item2 extends Item {
+class ItemNB extends Item {
 	watcherId = defaultOptions.watcherId
 }
 
 export default class ScrollWatcher {
-	static item = Item2
+	static item = ItemNB
 	
 	static init (options) {
 		const { wrap } = options

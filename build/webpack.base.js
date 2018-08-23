@@ -19,6 +19,7 @@ module.exports = {
 			path.resolve(__dirname, '../src/views'),
 		],
 		alias: {
+			'mona': path.resolve('./node_modules/mor-mobile'),
 			'src': path.resolve(__dirname, '../src'),
 			'watcher': path.resolve(__dirname, '../scroll-watcher'),
 			'react': path.resolve('./node_modules/react'),

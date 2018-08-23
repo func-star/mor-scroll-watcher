@@ -1,22 +1,18 @@
 import React, { Component } from 'react'
 import Ctrl from './ctrl'
+import KeyStore from './keyStore'
 
 export default class ScrollWatcherItem extends Component {
-	domInfo = {} // 节点位置信息
-	
 	componentDidMount () {
-		this.domInfo = this.refs.item.getBoundingClientRect()
-		Ctrl.on(this.watcherId, this.watcher.bind(this))
+		this.offsetTop = this.refs.item.offsetTop
+		this.monaWatcher = this.watcher.bind(this)
+		this.monaWatcher.id = KeyStore.getItemKey(this.watcherId)
+		Ctrl.on(this.watcherId, this.monaWatcher)
 	}
 	
-	isEmited = false
-	
 	watcher (info) {
-		if (this.isEmited) {
-			return
-		}
-		if (this.domInfo.top - info.scrollTop < (info.wrapHeight - info.bottomEmit)) {
-			this.isEmited = true
+		if (this.offsetTop - info.scrollTop < (info.wrapHeight - info.bottomEmit)) {
+			Ctrl.off(this.watcherId, this.monaWatcher)
 			this.props.onWatcher && this.props.onWatcher()
 		}
 	}
