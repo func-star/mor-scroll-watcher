@@ -51,7 +51,7 @@ export default class Wrap extends Component {
 					<For of={this.list} each="item" index="index">
 						<WatcherItem className="w-full scroller-item pos-r" key={index} onWatcher={this.onWatcher.bind(this, index)}
 						>
-							<img src="http://static.monajs.cn/example/beauty.jpg" className="w-full" style={{ marginBottom: '20px', minHeight: '180px' }} />
+							<img src="http://static.monajs.cn/example/beauty.jpg" className="w-full" style={{ marginBottom: '20px', minHeight: '360px' }} />
 							<div className="tag pos-a flex-center">{index + 1}</div>
 						</WatcherItem>
 					</For>
