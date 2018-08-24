@@ -2,6 +2,8 @@
 
 ✨✨ 这是一款非常有用轻巧的 React 组件，你可以应用到任何需要滚动监听的场景
 
+[![npm](https://img.shields.io/npm/v/mor-scroll-watcher.svg?style=flat-square)](https://www.npmjs.com/package/mor-scroll-watcher) [![npm](https://img.shields.io/npm/dt/mor-scroll-watcher.svg?style=flat-square)](https://www.npmjs.com/package/mor-scroll-watcher) 
+
 [demo页面](https://func-star.github.io/mor-scroll-watcher/)
 
 ## 使用场景
