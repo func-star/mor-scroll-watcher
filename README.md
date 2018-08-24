@@ -2,7 +2,7 @@
 
 ✨✨ 这是一款非常有用轻巧的 React 组件，你可以应用到任何需要滚动监听的场景
 
-[![npm](https://img.shields.io/npm/v/mor-scroll-watcher.svg?style=flat-square)](https://www.npmjs.com/package/mor-scroll-watcher) [![npm](https://img.shields.io/npm/dt/mor-scroll-watcher.svg?style=flat-square)](https://www.npmjs.com/package/mor-scroll-watcher) 
+[![npm](https://img.shields.io/npm/v/mor-scroll-watcher.svg?style=flat-square)](https://www.npmjs.com/package/mor-scroll-watcher) [![npm](https://img.shields.io/npm/dt/mor-scroll-watcher.svg?style=flat-square)](https://www.npmjs.com/package/mor-scroll-watcher)
 
 [demo页面](https://func-star.github.io/mor-scroll-watcher/)
 
@@ -88,9 +88,14 @@ export default class Home extends Component {
 | bottomEmit | 滚动距离底部的触发距离 | `Number` | `0` | `no` |
 | initEmit | 初始化是否需要触发一次 | `Boolean` | `true` | `no` |
 
-# WatcherItem
+## WatcherItem
 
 | 参数 | 说明 | 类型 | 默认值 | 可选项 |
 | --- | --- | --- | --- | :-- |
 | onWatcher | 触发之后的回调 | `Function` | - | - |
 | className | className属性 | `String` | - | - |
+
+
+## 联系我
+
+> 微信：599321378
