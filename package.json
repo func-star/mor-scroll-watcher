@@ -1,6 +1,6 @@
 {
 	"name": "mor-scroll-watcher",
-	"version": "0.4.0",
+	"version": "0.5.0",
 	"description": "Mona系列 - React滚动监听组件",
 	"main": "./lib/index.js",
 	"files": [

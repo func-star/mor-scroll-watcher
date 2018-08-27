@@ -19,6 +19,10 @@ export default class ScrollWatcherItem extends Component {
 	}
 	
 	watcher (info) {
+		if (info.type) {
+			debugger
+			console.log(1)
+		}
 		if (this.offsetTop - info.scrollTop < (info.wrapHeight - info.bottomEmit)) {
 			Ctrl.off(this.monaId, this.monaWatcher)
 			this.props.onWatcher && this.props.onWatcher()

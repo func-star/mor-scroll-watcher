@@ -13,7 +13,7 @@ export default class Wrap extends Component {
 	
 	componentDidMount () {
 		new Watcher({
-			wrap: findDOMNode(this.refs.views),
+			wrap: findDOMNode(this.refs.views)
 			// bottomEmit: 100,
 			// initEmit: false
 		})
@@ -35,7 +35,7 @@ export default class Wrap extends Component {
 	}
 	
 	onWatcher (index) {
-		console.log('a:' + index)
+		console.log('a:' + (index + 1))
 		Ctrl.emit('logoChange', index)
 	}
 	

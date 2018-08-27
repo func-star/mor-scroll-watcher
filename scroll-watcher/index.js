@@ -16,7 +16,7 @@ export default class ScrollWatcher {
 		if (!props.wrap) {
 			throw new Error('滚动监听的容器不允许为空！')
 		}
-		this.options = Object.assign(this.defaultOptions, props)
+		ScrollWatcher.options = this.options = Object.assign(this.defaultOptions, props)
 		
 		const { wrap, initEmit, monaId, ...options } = this.options
 		if (!IdStore.isIdExisted(monaId)) {
@@ -28,7 +28,7 @@ export default class ScrollWatcher {
 			IdStore.setInstanceId(monaId)
 		}
 		
-		this.wrapHeight = wrap.clientHeight
+		ScrollWatcher.wrapHeight = this.wrapHeight = wrap.clientHeight
 		this._bindEvents()
 		if (initEmit) {
 			Ctrl.emit(monaId, {

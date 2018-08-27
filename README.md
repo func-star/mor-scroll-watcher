@@ -43,10 +43,10 @@ const WatcherItem = Watcher.item
 
 export default class Home extends Component {
 	componentDidMount () {
-		Watcher.init({
+		new Watcher({
 			wrap: findDOMNode(this.refs.views)
 			// bottomEmit: 100,
-			// initEmit: true
+			// initEmit: false
 		})
 	}
 
@@ -80,11 +80,63 @@ export default class Home extends Component {
 
 ```
 
+## 高阶用法
+
+当页面内存在多个需要被监听滚动的容器时，需要设置唯一ID
+
+```js
+import React, { Component } from 'react'
+import Watcher from 'mor-scroll-watcher'
+
+const WatcherItem = Watcher.item
+
+export default class Home extends Component {
+	componentDidMount () {
+		new Watcher({
+			wrap: findDOMNode(this.refs.views)
+			monaId: 'weiyiID_123456'
+			// bottomEmit: 100,
+			// initEmit: false
+		})
+	}
+
+	onWatcher (index) {
+		// do something
+		console.log(index)
+	}
+
+	render () {
+		const list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+		return (
+			<div className="wrap" ref="views">
+				<For of={list} each="item" index="index">
+					<WatcherItem
+						monaId: 'weiyiID_123456'
+						className="w-full scroller-item"
+						key={index}
+						style={{
+							height: '200px',
+							background: 'yellow',
+							margin: '20px 0'
+						}}
+						onWatcher={this.onWatcher.bind(this, index)}
+					>
+						{item}
+					</WatcherItem>
+				</For>
+			</div>
+		)
+	}
+}
+
+```
+
 ## options
 
 | 参数 | 说明 | 类型 | 默认值 | 是否必传 |
 | --- | --- | --- | --- | :-- |
 | wrap | 滚动容器 | `DOM原生节点` | - | `yes` |
+| monaId | 当页面内存在多个需要监听的容器时，需要设置唯一的id，并与被监听的`WatcherItem`的属性`monaId`保持统一 | `String` | - | - |
 | bottomEmit | 滚动距离底部的触发距离 | `Number` | `0` | `no` |
 | initEmit | 初始化是否需要触发一次 | `Boolean` | `true` | `no` |
 
@@ -93,6 +145,7 @@ export default class Home extends Component {
 | 参数 | 说明 | 类型 | 默认值 | 可选项 |
 | --- | --- | --- | --- | :-- |
 | onWatcher | 触发之后的回调 | `Function` | - | - |
+| monaId | 当页面内存在多个需要监听的容器时，需要设置唯一的id，并与初始化的实例的属性`monaId`保持统一 | `String` | - | - |
 | className | className属性 | `String` | - | - |
 
 
