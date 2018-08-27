@@ -1,26 +1,18 @@
 import React, { Component } from 'react'
 import Ctrl from './ctrl'
-import IdStore from './idStore'
+import KeyStore from './keyStore'
 
 export default class ScrollWatcherItem extends Component {
-	monaId = this.props.monaId || IdStore.defaultId
-	
 	componentDidMount () {
-		let monaId = this.monaId
-		if (!IdStore.isIdExisted(monaId)) {
-			IdStore.setWrapId(monaId)
-		}
-		
 		this.offsetTop = this.refs.item.offsetTop
 		this.monaWatcher = this.watcher.bind(this)
-		
-		this.monaWatcher.id = IdStore.getItemCallbackKey(monaId)
-		Ctrl.on(monaId, this.monaWatcher)
+		this.monaWatcher.id = KeyStore.getItemKey(this.watcherId)
+		Ctrl.on(this.watcherId, this.monaWatcher)
 	}
 	
 	watcher (info) {
 		if (this.offsetTop - info.scrollTop < (info.wrapHeight - info.bottomEmit)) {
-			Ctrl.off(this.monaId, this.monaWatcher)
+			Ctrl.off(this.watcherId, this.monaWatcher)
 			this.props.onWatcher && this.props.onWatcher()
 		}
 	}
@@ -28,7 +20,6 @@ export default class ScrollWatcherItem extends Component {
 	render () {
 		const {
 			className,
-			monaId,
 			onWatcher,
 			children,
 			...props

@@ -1,8 +1,11 @@
 {
 	"name": "mor-scroll-watcher",
-	"version": "0.3.0",
+	"version": "0.4.0",
 	"description": "Mona系列 - React滚动监听组件",
-	"main": "index.js",
+	"main": "./lib/index.js",
+	"files": [
+		"lib"
+	],
 	"scripts": {
 		"start": "node ./build/webpack.dev.js",
 		"build": "export NODE_ENV=prodution && node ./build/webpack.build.js",

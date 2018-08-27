@@ -9,14 +9,13 @@ const WatcherItem = Watcher.item
 export default class Wrap extends Component {
 	componentWillMount () {
 		this.getList()
-		
 	}
 	
 	componentDidMount () {
-		Watcher.init({
-			wrap: findDOMNode(this.refs.views)
+		new Watcher({
+			wrap: findDOMNode(this.refs.views),
 			// bottomEmit: 100,
-			// initEmit: true
+			// initEmit: false
 		})
 	}
 	
@@ -36,6 +35,7 @@ export default class Wrap extends Component {
 	}
 	
 	onWatcher (index) {
+		console.log('a:' + index)
 		Ctrl.emit('logoChange', index)
 	}
 	
@@ -51,7 +51,10 @@ export default class Wrap extends Component {
 					<For of={this.list} each="item" index="index">
 						<WatcherItem className="w-full scroller-item pos-r" key={index} onWatcher={this.onWatcher.bind(this, index)}
 						>
-							<img src="http://static.monajs.cn/example/beauty.jpg" className="w-full" style={{ marginBottom: '20px', minHeight: '360px' }} />
+							<img src="http://static.monajs.cn/example/beauty.jpg" className="w-full" style={{
+								marginBottom: '20px',
+								minHeight: '360px'
+							}} />
 							<div className="tag pos-a flex-center">{index + 1}</div>
 						</WatcherItem>
 					</For>
